@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Thank you</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon6.png">
+    <link rel="stylesheet" href="{% static 'users/css/endpage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/64c6f68e46.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script type="text/javascript">
+
+    
+    function Retake(){
+    location.href="/camera"
+    }
+    
+    </script>
+
+    <script>function redirect(){
+        location.href="/thankyou"
+      }
+    </script>
+
+    <br>
+
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <div class="logo"><a class="navbar-brand"><img src="{% static 'users/img/SuperFitlogo2-withoutbackground.jpeg' %}"></a></div>
+        <ul class="links mr-auto">
+			<li style="float: left;"><a href="{% url 'homepage' %}">Home</a></li>
+			
+			{% if user.is_authenticated %}
+				<li style="float: left;"><a href="{% url 'profile' %}">Profile</a></li>
+				<li style="float: left;"><a href="{% url 'Scanpage' %}">Scan</a></li>
+				<li style="float: left;"><a href="{% url 'logout' %}">Logout</a></li>
+			{% else %}
+				<li style="float: left;"><a href="{% url 'login' %}">Login</a></li>
+				<li style="float: left;"><a href="{% url 'register' %}">SignUp</a></li>
+			{% endif %}
+			<!-- <li><a href="#our technology">Our Technology</a></li>
+			<li><a href="#our team">Our team</a></li> -->
+			<li style="float: left;"><a href="#contact us">Contact Us</a></li>
+			<!-- <li><a href="#project report">Project Report</a></li> -->
+			
+		</ul>
+        
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+    <form action='ty_redirect' method='GET'>
+        <img src="{{image_path}}" class="center">
+        <div class="buttons">
+            <button onclick=Retake() name="button" id='button1'>Retake</button>
+            <button onclick="redirect()" id='button2'>Proceed</button>
+            <p>Your body size is {{size}}.</p>
+        </div>
+    </form>
+    <br><br>
+    <div class="thankyou">
+        <i class='fas fa-shopping-basket' style='font-size:48px;'></i>
+        <i class='fas fa-shopping-cart' style='font-size:48px;'></i>
+        <i class='fas fa-shopping-bag' style='font-size:48px;'></i>
+        <br><br>
+        <h3>Thank you for using Super Fit!</h3><br>
+        <h4>Happy Shopping ❣</h4>
+    </div>
+    <br><br>
+
+    
+
+    <hr>
+
+    <!--Start of Our team slider-->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our team</h2>
+                <span class="section-separator"></span>
+                <p>A brief introduction to the whole crew behind making this Super Fit App and Website.<br>(Group Id:3A72021)</p>
+            </div>
+        </div>
+        <div class="testimonials-carousel-wrap">
+            <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+            <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+            <div class="testimonials-carousel">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="{% static 'users/img/Sagar.jpeg' %}"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like ML, AI and backend web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Sagar Abhyankar (10703)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/sagar-abhyankar-299608206/" class="fa fa-linkedin"></a>
+                                        <a href="#" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+    
+                        <!--second--->
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="{% static 'users/img/Om.jpeg' %}"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like ML and AI.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Om Gund (10705)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/om-gund/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/om.gund/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        <!--third-->
+    
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="{% static 'users/img/Samir.jpeg' %}"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like backend and front end web developmennt.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Samir Hendre (10708)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/samir-hendre-2bb9161b3/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/samir_hendre/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+    
+                        <!--fourth-->
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="{% static 'users/img/Mrunal.jpeg' %}"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed her part in front web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Mrunal Golivadekar (10710)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="#" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/_mrunal._._/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        <!--fifth-->
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="{% static 'users/img/Mugdha.jpeg' %}"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed her part by working in domains like frontend web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Mugdha Malpe (10713)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/mugdha-malpe-421147213/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/_mugdhamalpe_/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        <!--testi end-->
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="tc-pagination"></div>
+        </div>
+    </section>
+    <!--End of our team slider-->
+
+
+    <!-- <hr class="socket"> -->
+    <div id="footer">
+        <p class="left">
+            <strong>Contact Info</strong><br>
+            888-888-888<br>superfit@gmail.com
+            
+        </p>
+        <p class="right">
+            &copy; Super Fit <br>Made with ❤ by crew of Super Fit<br>Group Id: 3A72021<br>
+        </p>
+        <p class = "centered">
+            <img src="img/superfitlogo.png"><br>
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{% static 'users/js/endpage.js' %}"></script>
+    
+</body>
+</html>
+<!--<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Thank you</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon6.png">
+    <link rel="stylesheet" href="users/css/endpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script type="text/javascript">
+    function Redirect(){
+    location.href={{link}}
+    }
+    function Retake(){
+    location.href="/camera"
+    }
+    
+    </script>
+
+    <script>function redirect(){
+        location.href="/thankyou"
+      }
+    </script>
+
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <div class="logo"><a class="navbar-brand"><img src="img/superfitlogo-removebg-preview.png"></a></div>
+        <ul class="links mr-auto">
+            
+            <li><a href="#home">Home</a></li>
+            <li><a href="#login">Profile</a></li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+        
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+    <form action='ty_redirect' method='GET'>
+        <img src="img/slider-2.jpg" class="center">
+        <div class="buttons">
+            <button onclick=Retake() name="button" id='button1'>Retake</button>
+            <button onclick="redirect()" id='button2'>Proceed</button>
+            <p>Your body size is {{size}}.</p>
+        </div>    
+    </form>
+    <hr>
+
+    
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our team</h2>
+                <span class="section-separator"></span>
+                <p>A brief introduction to the whole crew behind making this Super Fit App and Website.<br>(Group Id:3A72021)</p>
+            </div>
+        </div>
+        <div class="testimonials-carousel-wrap">
+            <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+            <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+            <div class="testimonials-carousel">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="img/21.jpg"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like ML, AI and backend web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Sagar Abhyankar (10703)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/sagar-abhyankar-299608206/" class="fa fa-linkedin"></a>
+                                        <a href="#" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+    
+                        
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="img/6.jpg"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like ML and AI.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Om Gund (10705)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/om-gund/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/om.gund/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        
+    
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="img/7.jpg"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed his part by working in domains like backend and front end web developmennt.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Samir Hendre (10708)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/samir-hendre-2bb9161b3/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/samir_hendre/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+    
+                        
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="img/4.jpg"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed her part in front web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Mrunal Golivadekar (10710)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="#" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/_mrunal._._/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="testi-item">
+                                <div class="testi-avatar"><img src="img/3.jpg"></div>
+                                <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                                <div class="testimonials-text">
+                                    <p>Contributed her part by working in domains like frontend web development.</p>
+                                    <a href="#" class="text-link"></a>
+                                    <div class="testimonials-avatar">
+                                        <h3>Mugdha Malpe (10713)</h3>
+                                        <h4>3A72021</h4><br>
+                                        <a href="https://www.linkedin.com/in/mugdha-malpe-421147213/" class="fa fa-linkedin"></a>
+                                        <a href="https://www.instagram.com/_mugdhamalpe_/" class="fa fa-instagram"></a>
+                                        <a href="#" class="fa fa-github"></a>
+                                    </div>
+                                </div>
+                                <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                            </div>
+                        </div>
+                        
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="tc-pagination"></div>
+        </div>
+    </section>
+    
+
+    
+    <div id="footer">
+        <p class="left">
+            <strong>Contact Info</strong><br>
+            888-888-888<br>superfit@gmail.com
+            
+        </p>
+        <p class="right">
+            &copy; Super Fit <br>Made with ❤ by crew of Super Fit<br>Group Id: 3A72021<br>
+        </p>
+        <p class = "centered">
+            <img src="img/superfitlogo.png"><br>
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="endpage.js"></script>
+    
+</body>
+</html>-->

@@ -32,8 +32,11 @@ def register(request):#registration page
     return render(request,'users/registration.html',{'form':form})
 
 
+
+
+
 def home(request):#homepage
-    return render(request,'users/home.html')
+    return render(request,'users/index.html')
 
 
 @login_required
@@ -77,7 +80,7 @@ def scan(request):
     context={
         's_form':s_form
     }
-    return render(request,'users/Scanning.html',context)
+    return render(request,'users/instructions.html',context)
 
 
     
@@ -127,7 +130,7 @@ def site_load(request):
         global b 
         b = str(a,'UTF-8')
         url_to_image(b)
-    return render(request,"users/camera.html")
+    return render(request,"users/scanning.html")
 
 
 def url_to_image(url):
@@ -153,7 +156,7 @@ def url_to_image(url):
 
 def typage(request):
    
-    return render(request,'users/thankyou.html',{'size':size,'image_path':b})
+    return render(request,'users/endpage.html',{'size':size,'image_path':b})
  
 
 def ty_redirect(request):

@@ -1,21 +1,99 @@
-{% extends "users/base.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super Fit</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon6.png">
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/instructions.css' %}">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+
+
+
+    <!-- Custom styles for this template 
+		<link href="carousel.css" rel="stylesheet">-->
+
+</head>
+
+<body>
+
+
+
+
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <div class="logo"><a class="navbar-brand"><img
+                    src="{% static 'users/img/SuperFitlogo2-withoutbackground.jpeg' %}"></a></div>
+        <ul class="links">
+            <li style="float: left;"><a href="{% url 'homepage' %}">Home</a></li>
+
+            {% if user.is_authenticated %}
+            <li style="float: left;"><a href="{% url 'profile' %}">Profile</a></li>
+            <li style="float: left;"><a href="{% url 'Scanpage' %}">Scan</a></li>
+            <li style="float: left;"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li style="float: left;"><a href="{% url 'login' %}">Login</a></li>
+            <li style="float: left;"><a href="{% url 'register' %}">SignUp</a></li>
+            {% endif %}
+            <!-- <li><a href="#our technology">Our Technology</a></li>
+			<li><a href="#our team">Our team</a></li> -->
+            <li style="float: left;"><a href="#contact us">Contact Us</a></li>
+            <!-- <li><a href="#project report">Project Report</a></li> -->
+
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+    <br><br><br><br>
     <div class="container">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+
+        <div class="container register">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                <legend class="border-bottom mb-4" style="background-color: purple;color:white;text-align: center;margin: 0 auto;">Join Today</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group" style="display: flex; align-items: center;">
+                    <button class="btn button-lg" style="background-color:purple;color: white;" type="submit">Sign Up</button>
+                </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                </small>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
-            </small>
         </div>
     </div>
-{% endblock content %}
+    <hr class="socket">
+    <div id="footer">
+        <p class="left">
+            <strong>Contact Info</strong><br>
+            888-888-888<br>superfit@gmail.com
+            
+        </p>
+        <p class="right">
+            &copy; Super Fit <br>Made with ❤ by crew of Super Fit<br>Group Id: 3A72021
+        </p>
+        <p class = "centered">
+            <img src="{% static 'users/img/SuperFitlogo1.jpeg' %}"><br>
+        </p>
+    </div>
+
+</body>
+
+</html>

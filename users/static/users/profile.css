@@ -1,0 +1,36 @@
+
+body{
+    background-image: url(scrolling-gradient.jpeg);
+    background-repeat: no-repeat;
+    height: auto;
+    overflow:scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    margin-left: 0!important;
+    padding-left: 0!important;
+        
+
+}
+    
+
+.profile1{
+    display: flex;
+    padding-right: 5px;
+    flex-direction: row;
+    width: 50%;
+}
+.profile2{
+    margin-left: 100px;
+}
+.img{
+    border-radius: 50%;
+
+}
+.from{
+    border: solid black 3px;
+    padding: 5px;
+    border-radius: 10px;
+    background: lightgray;
+}

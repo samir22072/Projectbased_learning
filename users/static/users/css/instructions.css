@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body{
-    background-image: url(img/scrolling-gradient.png);
+    background-image: url('scrolling-gradient.jpeg')!important;
     background-repeat: no-repeat;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background: linear-gradient(120deg,#8e44ad,#2980b9);
+    
     
 }
 nav{
@@ -16,8 +18,8 @@ nav{
     right: 0;
     top: 0;
     font-family: 'Lato', sans-serif;
-    height: 100px;
-    background-color:rgba(32, 31, 34, 0.9)
+    height: 70px;
+    background-color:rgba(32, 31, 34, 0.9);
   }
   
 nav .logo{
@@ -28,6 +30,7 @@ nav .logo{
     align-items: center;
     font-size: 24px;
     color: white;
+    padding-left: 10px;
   }
   
 .logo img{
@@ -135,6 +138,7 @@ nav .icon-burger .line{
   }
   
 .caption{
+    margin-top: 0;
     text-align: center;
 }
 .caption h2{
@@ -168,18 +172,13 @@ nav .icon-burger .line{
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   }
   .button-lg:hover{
-    /* text-decoration: underline!important; */
-    color: white!important;
-    /* background-color: #9209e6!important; */
-    background-color: black;
-    text-decoration-color: white;
+    
     box-shadow: 0.2rem 0.2rem 0.5rem black!important;
     }
 
     .instructions{
-        
-        flex-direction: column;
         text-align: left;
+        color: white;
         text-decoration: none;
         font-size: 26px;
         font-family: 'Lato', sans-serif;
@@ -211,13 +210,11 @@ nav .icon-burger .line{
   border-radius: 1rem;
   padding: 25px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 80px;
     /* align-items: center; */
     /* float: center; */
   margin-right: 30px;
-  margin-bottom: 30px;
   flex: 50%;
-  
 }
 
 .row{
@@ -227,34 +224,37 @@ nav .icon-burger .line{
 
 
 /* --- Contact --- */
-footer{
+#footer{
   font-family: 'Lato', sans-serif;
   background: rgb(67,67,67);
-  background: linear-gradient(0deg,  #dc7aeb , #9209e6 55%);
-  color: black;
+  background-color:rgba(32, 31, 34, 0.7);
+  /* background: linear-gradient(0deg,  #dc7aeb , #9209e6 55%); */
+  color: white;
   padding: 2rem 0 2rem;
   margin-top: 1rem;
   text-align: center;
   font-size: 1.2rem;
+  margin-right: 0;
+  margin-left: 0;
 }
 
-footer img{
+#footer img{
   align-items: center;
   height: 3rem;
   margin: 1.5rem 0;
   border-radius: 0.4rem!important;
 }
 
-footer a{
+#footer a{
   color: white;
 }
 
-footer svg.svg-inline--fa{
+#footer svg.svg-inline--fa{
   font-size: 1.6rem;
   margin: 1.2rem 0.5rem 0 0;
 }
 
-footer svg.svg-inline--fa:hover{
+#footer svg.svg-inline--fa:hover{
   color: black;
 }
 
@@ -265,33 +265,57 @@ footer svg.svg-inline--fa:hover{
 } */
 hr.socket {
   width: 100%;
-  border-top: 0.2rem solid #000000;
+  border-top: 0.2rem solid black;
   margin-top: 3rem;
   text-align: center!important;
 }
 
-@media screen and (max-width: 1442px) {
+.left{
+  text-align:left;
+  float:left;
+  font-size: 26px;
+  margin-left: 15%;
+  margin-bottom: 10px;
+  }
+
+  #footer img{
+    height: 3.5rem;
+    margin: 1rem 0;
+    border-radius: 0.4rem!important;
+
+  }
+  .right{
+  float:right;
+  margin-top: 10px;
+  text-align:right;
+  margin-right: 15%;
+  font-size: 26px;
+  margin-bottom: 10px;
+  }
+
+  .centered{
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 1442px) {
     .row{
         display: flex;
         align-items: center;
         flex-direction: column;
     }
     .caption{
-        background-image:url('users/R.jpeg');
-        width: 100%;    
-    }
-    .bg{
+        
+    
         margin: 0 auto;
         display: flex;
         align-items: center;
-        width:450px;
+        width:40%;
     }
     
     
 
     
     
-}
-@media screen and (max-width: 1442px){
-
 }

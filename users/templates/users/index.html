@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Super Fit</title>
+	<link rel="shortcut icon" type="image/png" href="img/favicon6.png">
+	<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+	<script src="main.js"></script>
+	<link rel="stylesheet" href="css/fixed.css">
+	<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kit.fontawesome.com/64c6f68e46.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="carousel.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/64c6f68e46.js" crossorigin="anonymous"></script>
+
+
+	<!--<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.83.1">
+	<title>Carousel Template · Bootstrap v5.0</title>-->
+	
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">	
+	
+		<!-- Bootstrap core CSS -->
+	<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	
+		<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+	<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+	<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+	<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+	<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+	<meta name="theme-color" content="#7952b3">
+	
+	
+		<style>
+		  .bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		  }
+	
+		  @media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+			  font-size: 3.5rem;
+			}
+		  }
+		</style>
+	
+		
+		<!-- Custom styles for this template 
+		<link href="carousel.css" rel="stylesheet">-->
+
+</head>
+<body>
+
+    <div class="loader_bg">
+		<div class="loader"></div>
+	</div>
+	
+
+	<nav>
+		<input id="nav-toggle" type="checkbox">
+		<div class="logo"><a class="navbar-brand"><img src="static/users/img/SuperFitlogo2-withoutbackground.jpeg"></a></div>
+		<ul class="links">
+			<li style="float: left;"><a href="{% url 'homepage' %}">Home</a></li>
+			
+			{% if user.is_authenticated %}
+				<li style="float: left;"><a href="{% url 'profile' %}">Profile</a></li>
+				<li style="float: left;"><a href="{% url 'Scanpage' %}">Scan</a></li>
+				<li style="float: left;"><a href="{% url 'logout' %}">Logout</a></li>
+			{% else %}
+				<li style="float: left;"><a href="{% url 'login' %}">Login</a></li>
+				<li style="float: left;"><a href="{% url 'register' %}">SignUp</a></li>
+			{% endif %}
+			<!-- <li><a href="#our technology">Our Technology</a></li>
+			<li><a href="#our team">Our team</a></li> -->
+			<li style="float: left;"><a href="#contact us">Contact Us</a></li>
+			<!-- <li><a href="#project report">Project Report</a></li> -->
+			
+		</ul>
+		<label for="nav-toggle" class="icon-burger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</label>
+	</nav>
+
+	<!-- Start Image Slider -->
+
+	<section class="home">
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-controls">
+		  <ol class="carousel-indicators">
+			<li data-target="#carousel" data-slide-to="0" class="active" style="background-image:url('static/users/img/slide-1.jpeg')"></li>
+			<li data-target="#carousel" data-slide-to="1" style="background-image:url('static/users/img/slide-2.jpeg')"></li>
+			
+			
+		  </ol>
+		  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+		   <img src="static/users/img/left-arrow.jpeg" alt="Prev"> 
+		</a>
+		<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+		  <img src="static/users/img/right-arrow.jpeg" alt="Next">
+		</a>
+		</div>
+		<div class="carousel-inner">
+		  <div class="carousel-item active" style="background-image:url('static/users/img/slide-1.jpeg')">
+			<div class="container">
+			   <h2>Welcome to Super Fit</h2>
+			   <p>The one stop destination for<br> all your apparel measurement needs.<br></p>
+			</div>
+		  </div>
+		  <div class="carousel-item" style="background-image:url('static/users/img/slide-2.jpeg')">
+			<div class="container">
+			   <h2>Swag Up with SuperFit</h2>
+			   <p>SuperFit is like your bestie, she just wanna see you Glow Up.<br>The highly
+			  accurate scanning technology ensures that you get your exact clothes size.</p><br><br>
+			</div>
+		  </div>
+		  <div class="carousel-item" style="background-image:url('static/users/img/slide-2.jpg')">
+			<div class="container">
+			   <h2>Upgrade Your Style Quotient</h2>
+			   <p>SuperFit has partnered with fashion juggernauts like Amazon<br> To provide you the
+				  best collections in your exact size range.<br></p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	   </section>
+	
+	<br>
+	<br>
+	<br>
+
+	<!-- Flowchart -->
+	<div class="flowchart">
+		<img src="static/users/img/SuperFit.jpeg" class="center">
+	</div>
+	
+
+
+	<!--Number of times visited - Counter-->
+	<div class="container counter-section">
+        <div class="row text-center">
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class='fas fa-users' style='font-size:58px'></i></div>
+                <p class="counter">150 +</p>
+                <p>PEOPLE VISITED</p>
+            </div>
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class="fas fa-camera" style="font-size:58px"></i></div>
+                <p class="counter">100 +</p>
+                <p>NUMBER OF PEOPLE SCANNED</p>
+            </div>
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class="fas fa-globe-americas" style="font-size:68px"></i></div>
+                <p class="counter">3000 +</p>
+                <p>Kg OF CO2 SAVED</p>
+            </div>
+        </div>
+    </div>
+
+	
+
+
+	<!-- Start Logo Slider -->
+	<div class="ourclients">
+		<h1 style="text-align:center;">Companies we would like to work with, in future.</h1>
+	</div>
+	
+	<br>
+	
+	<div class="slider">
+        <div class="slider-track">
+            <div class="slide">
+                <img src="static/users/img/logo1.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo2.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo3.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo4.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo5.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/usersimg/logo6.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo7.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo8.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="static/users/img/logo9.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+
+	
+
+
+	
+	<br><br><br><br>
+
+	<!--Start of Inspiration Section-->
+	<div id="inspiration" class="offset">
+
+		<!--Start of Jumbotron -->
+		<div class="jumbotron">
+			<div class="col-12 text-center">
+				<h1 clas="heading">The real inspiration that keeps us going!</h1>
+				<div class="heading-underline"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4 feedback">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="static/users/img/gucci.jpeg">
+						</div>
+						<div class="col-md-8">
+							<blockquote>
+								<i class="fas fa-quote-right" style="font-size: 30px;"></i>
+								<h4><strong>Quality</strong> is remembered long after price is forgotten.</h4>
+								<hr class="feedback-hr">
+								<h5>— Guccio Gucci <br>(Founder of Gucci)</h5>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 feedback">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="static/users/img/GiorgioArmani.jpeg">
+						</div>
+						<div class="col-md-8">
+							<blockquote>
+								<i class="fas fa-quote-right" style="font-size: 30px;"></i>
+								<h4><strong>Elegance</strong> is not catching somebody's eyes,
+									<br>
+									<strong>it's staying in somebody's memory.</strong></h4>
+								<hr class="feedback-hr">
+								<h5>— Giorgio Armani <br>(Founder of Armani)</h5>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 feedback">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="static/users/img/Chanel.jpeg">
+						</div>
+						<div class="col-md-8">
+							<blockquote>
+								<i class="fas fa-quote-right" style="font-size: 30px;"></i>
+								<h4><strong>Beauty</strong> begins the moment you decide to <strong>be yourself</strong>.</h4>
+								<hr class="feedback-hr">
+								<h5>— Coco Chanel <br>(Founder of Chanel)</h5>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div><!--End of row-->
+		</div><!--End of jumbotron-->
+		
+	</div>
+
+	<!--End of Inspiration Section-->
+
+
+	<br>
+	<div class="info">
+		<h2>Want to know more about Super Fit?<br> Let's dive in!</h2>
+		<a class="btn btn-outline-dark button-lg" href="{% url 'login' %}">Login</a>
+	</div>
+	<br>
+	<br>
+	
+
+	<div class="container counter-section2">
+        <div class="row text-center">
+            <div class="col-md-4 counter-box2">
+                <div class="icon-box"><i class='fas fa-thumbs-up' style='font-size:58px'></i></div>
+                <p>EASY EXCHANGE</p>
+            </div>
+            <div class="col-md-4 counter-box2">
+                <div class="icon-box"><i class='fas fa-gem' style='font-size:58px'></i></div>
+                <p>100% HANDPICKED</p>
+            </div>
+            <div class="col-md-4 counter-box2">
+                <div class="icon-box"><i class='fas fa-medal' style='font-size:58px'></i></div>
+                <p>ASSURED QUALITY</p>
+            </div>
+        </div>
+    </div>
+
+	<!--Start Contact Section-->
+	<div id="contact" class="offset">
+		<footer>
+			<div class="row justify-content-center">
+				<div class="col-md-5 text-center">
+					<img src="static/users/img/SuperFitlogo1.jpeg">
+					<p>Thank you for visiting our website:))<br>Have a good day!</p>
+					<strong>Contact Info</strong>
+					<p>888-888-888<br>superfit@gmail.com</p>
+					<a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+				</div>
+
+				<hr class="socket">
+				&copy; Super Fit <br>Made with ❤<br>By crew of Super Fit<br>Group Id: 3A72021
+			</div><!--End of row-->
+		</footer>
+	</div>
+	<!--End Contact Section-->
+
+
+
+
+
+	<script>
+		setTimeout(function(){
+			$('.loader_bg').fadeToggle();
+		}, 1500);
+	</script>
+	<!--- Script Source Files -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+	<!--- End of Script Source Files -->
+	<script src="{% static 'users/js/main.js' %}"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+
+
+	<!--Counter-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{% static 'users/js/jquery.counterup.min.js' %}"></script>
+    <script>
+        jQuery(document).ready(function( $ )
+        {
+            $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+            });
+        });
+        
+    </script>
+
+
+	
+</body>
+</html>
+
+
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox"> -->
+			<!---Slider 1--->
+			<!-- <div class="carousel-item active" style="background-image: url(img/slide-1.jpg);">
+				<div class="carousel-caption text-center">
+					<h1>Welcome to Super Fit</h1>
+					<h3>The one stop destination for all your apparel measurement needs.</h3>
+					<a class="btn btn-outline-dark btn-lg" href="#login">Login</a>
+				</div>
+			</div> -->
+			<!---Slider 2--->
+			<!-- <div class="carousel-item" style="background-image: url(img/slide-2.jpg);">
+				<div class="carousel-caption-slider2 text-center">
+					<h1>Swag Up with SuperFit</h1><br>
+					<h3>SuperFit is like your bestie, she just wanna see you Glow Up.<br>The highly
+						accurate scanning technology ensures that you get your exact clothes size.</h3><br>
+					<h2>Apparel shopping made simple.</h2><br>
+				</div>
+			</div> -->
+			<!---Slider 3--->
+			<!-- <div class="carousel-item" style="background-image: url(img/slide-3.jpg);">
+				<div class="carousel-caption-slider3 text-center">
+					<h1>Upgrade Your Style Quotient</h1><br>
+					<h3>SuperFit has partnered with fashion juggernauts like Amazon<br> To provide you the
+						best collections in your exact size range.</h3><br>
+					<h2>So, let's straight dive into the world of fashion!</h2><br>
+				</div>
+			</div> -->
+		<!-- </div> -->
+		<!--End Carousel Inner-->
+		<!--Prev & Next buttons-->
+		<!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		</a>
+
+
+	</div> -->
+	<!--End Image Slider-->
+
+
+
+
+<!-- <div class="container counter-section">
+        <div class="row text-center">
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class='fas fa-users' style='font-size:58px'></i></div>
+                <p class="counter"><div id="value">100</div></p>
+                <p>PEOPLE VISITED</p>
+            </div>
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class="fas fa-camera" style="font-size:58px"></i></div>
+                <p class="counter"><div id="value2">50</div></p>
+                <p>NUMBER OF PEOPLE SCANNED</p>
+            </div>
+            <div class="col-md-4 counter-box">
+                <div class="icon-box"><i class="fas fa-globe-americas" style="font-size:68px"></i></div>
+                <p class="counter"><div id="value3">300</div></p>
+                <p>Kg OF CO2 SAVED</p>
+            </div>
+        </div>
+    </div> -->
+
+	<!-- <script>
+        function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+            window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+        }
+
+        const obj = document.getElementById("value");
+        animateValue(obj, 0, 100, 4000);
+		const obj = document.getElementById("value2");
+        animateValue(obj, 0, 50, 4000);
+		const obj = document.getElementById("value3");
+        animateValue(obj, 0, 300, 4000);
+    </script> -->
+
+
+
+
+
+
+
+
+<!-- <div class="client-area">
+		<div class="container">
+			<h2>Our <span>Clients</span></h2>
+			<section class="logo-area slider">
+				<div class="slide"><img src="img/logo1.png" alt=""></div>
+				<div class="slide"><img src="img/logo2.png" alt=""></div>
+				<div class="slide"><img src="img/logo3.png" alt=""></div>
+				<div class="slide"><img src="img/logo4.jpg" alt=""></div>
+			</section>
+		</div>
+	</div> -->
+
+
+	<!--<main class='main'>
+
+		<section class='left section'>
+			<br>
+			<br>
+			<br>
+			<h1>Lorem ipsum dolor sit amet</h1><br>
+			<br>
+			<h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ea dicta eum voluptas nesciunt.</h4><br>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod fugit praesentium omnis quia sapiente quis, incidunt odit eos! Commodi porro laudantium officia doloribus temporibus doloremque, minus nostrum laboriosam harum facilis?</p><br><br>
+			<div class="col-6 narrow text-center">
+				<a class="btn-sec" href="#">Survey</a>
+			</div>
+			<div class="col-12 narrow text-center">
+				<a class="btn-sec" href="#">Try now!</a>
+			</div>
+		</section>
+		<section class='right section'>-->
+			<!--<img src="img/superfitlogo-removebg-preview.png">-->
+			<!--<div class="showcase">
+				<script>
+					var i=0;
+					var images = [];
+					var time = 1500;
+				
+					//Image list
+					images[0] = 'img/slider1.PNG';
+					images[1] = 'img/slider2.PNG';
+					images[2] = 'img/slider3.PNG';
+				
+					//Change Image
+					function changeImg(){
+						document.slide.src = images[i];
+				
+						if(i < images.length - 1){
+							i++;
+						} else{
+							i=0;
+						}
+				
+						setTimeout('changeImg()', time);
+					}
+				
+					window.onload = changeImg;
+				
+				</script>
+				
+				<img name="slide" width="300" height="300">
+			</div>
+		</section>
+	  
+	</main>-->
+
+
+
+	
+
+	<!--<div class="container">
+		<img src="img/superfitlogo.png">
+	</div>-->
+
+	<!--<div class="showcase">
+		<script>
+			var i=0;
+			var images = [];
+			var time = 1500;
+		
+			//Image list
+			images[0] = 'img/slider1.PNG';
+			images[1] = 'img/slider2.PNG';
+			images[2] = 'img/slider3.PNG';
+		
+			//Change Image
+			function changeImg(){
+				document.slide.src = images[i];
+		
+				if(i < images.length - 1){
+					i++;
+				} else{
+					i=0;
+				}
+		
+				setTimeout('changeImg()', time);
+			}
+		
+			window.onload = changeImg;
+		
+		</script>
+		
+		<img name="slide" width="300" height="300">
+	</div>-->
+
+
+
+
+
+<!--Slick Slider-->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.logo-area').slick({
+				slidesToShow: 6,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 500,
+				arrows: false,
+				dots: false,
+				pauseOnHover: false,
+				responsive: [{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 4
+					}
+				}, {
+						breakpoint: 520,
+						settings: {
+							slidesToShow: 3
+						}
+				}]
+			});
+		});
+	</script> -->
+	<!--End Slick Slider-->
+
+<!--Source Code for Carousel
+<main>
+
+	<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+	  <div class="carousel-indicators">
+		<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+		<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+	  </div>
+	  <div class="carousel-inner">
+		<div class="carousel-item">
+		  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+  
+		  <div class="container">
+			<div class="carousel-caption text-start">
+			  <h1>Example headline.</h1>
+			  <p>Some representative placeholder content for the first slide of the carousel.</p>
+			  <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+			</div>
+		  </div>
+		</div>
+		<div class="carousel-item active carousel-item-start">
+		  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+  
+		  <div class="container">
+			<div class="carousel-caption">
+			  <h1>Another example headline.</h1>
+			  <p>Some representative placeholder content for the second slide of the carousel.</p>
+			  <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+			</div>
+		  </div>
+		</div>
+		<div class="carousel-item carousel-item-next carousel-item-start">
+		  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+  
+		  <div class="container">
+			<div class="carousel-caption text-end">
+			  <h1>One more for good measure.</h1>
+			  <p>Some representative placeholder content for the third slide of this carousel.</p>
+			  <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	  </button>
+	</div>-->
+  
+  
+	<!-- Marketing messaging and featurettes
+	================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+	
+	<!--<div class="container marketing">-->
+  
+	  <!-- Three columns of text below the carousel -->
+	  <!--<div class="row">
+		<div class="col-lg-4">
+		  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+		  <h2>Heading</h2>
+		  <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+		  <p><a class="btn btn-secondary" href="#">View details »</a></p>
+		</div>--><!-- /.col-lg-4 -->
+		<!--<div class="col-lg-4">
+		  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+		  <h2>Heading</h2>
+		  <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+		  <p><a class="btn btn-secondary" href="#">View details »</a></p>
+		</div>--><!-- /.col-lg-4 -->
+		<!--<div class="col-lg-4">
+		  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+		  <h2>Heading</h2>
+		  <p>And lastly this, the third column of representative placeholder content.</p>
+		  <p><a class="btn btn-secondary" href="#">View details »</a></p>
+		</div>--><!-- /.col-lg-4 -->
+	</div><!-- /.row -->
+  
+  
+	  <!-- START THE FEATURETTES -->
+  
+	  <!-- <hr class="featurette-divider">
+  
+	  <div class="row featurette">
+		<div class="col-md-7">
+		  <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+		  <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+		</div>
+		<div class="col-md-5">
+		  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  
+		</div>
+	  </div>
+  
+	  <hr class="featurette-divider">
+  
+	  <div class="row featurette">
+		<div class="col-md-7 order-md-2">
+		  <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+		  <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+		</div>
+		<div class="col-md-5 order-md-1">
+		  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  
+		</div>
+	  </div>
+  
+	  <hr class="featurette-divider">
+  
+	  <div class="row featurette">
+		<div class="col-md-7">
+		  <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+		  <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+		</div>
+		<div class="col-md-5">
+		  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  
+		</div>
+	  </div>
+  
+	  <hr class="featurette-divider"> -->
+  
+	  <!-- /END THE FEATURETTES -->
+  
+	</div><!-- /.container -->
+  
+  
+	<!-- FOOTER -->
+	<!-- <footer class="container">
+	  <p class="float-end"><a href="#">Back to top</a></p>
+	  <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+	</footer> 
+</main>-->
+

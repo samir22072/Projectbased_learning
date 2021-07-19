@@ -1,0 +1,16 @@
+body{
+    background: linear-gradient(120deg,#8e44ad,#2980b9);
+    overflow:auto;
+    
+}
+.register{
+    
+    border: black solid 5px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 10px;
+    padding: 50px;
+}
+.container{
+    width: 50%;
+}
