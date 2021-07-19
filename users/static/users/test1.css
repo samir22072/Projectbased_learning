@@ -277,7 +277,7 @@ hr.socket {
         flex-direction: column;
     }
     .caption{
-        background-image:url('R.jpeg');;
+        background-image:url('users/R.jpeg');
         width: 100%;    
     }
     .bg{
@@ -291,4 +291,7 @@ hr.socket {
 
     
     
+}
+@media screen and (max-width: 1442px){
+
 }

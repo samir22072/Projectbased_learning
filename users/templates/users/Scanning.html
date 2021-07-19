@@ -1,7 +1,106 @@
-{% extends "users/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
-{% block content %}
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link href="{% static 'users/base.css' %}" rel="stylesheet">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>PBL</title>
+    {% endif %}
+</head>
+
+<body>
+    <nav>
+		<input id="nav-toggle" type="checkbox">
+		<div class="logo"><a class="navbar-brand"><img src="{% static 'users/Snaphunt1.jpg' %}"></a></div>
+		<ul class="links mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+            </li>
+
+            <!-- <ul class="navbar-nav mr-auto"></ul> -->
+			{% if user.is_authenticated %}
+                    
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Scanpage' %}">Scan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+            {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+            {% endif %}
+		</ul>
+        
+		<label for="nav-toggle" class="icon-burger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</label>
+	</nav>
+    <br><br><br><br><br>
+
+    <div class="row">
+        <div class="instructions">
+            <h2>Instructions:</h2>
+            <h4>(while capturing the image)</h4>
+            <ol class="links" style="list-style-type:none;">
+                <li>1. Make sure you and the pattern on your superfit app are completely visible.</li><br>
+                <li>2. Hold the pattern as vertically as possible to avoid slant measure errors.</li><br>
+                <li>3. A plain background and 1-1.5m distance from the camera is preferable.</li><br>
+                <li>4. Please click on the "Allow" button when prompted by the browser to use camera.</li><br>
+                <div class="allow">
+                    <img src="{% static 'users/allow.jpg' %}" class="center">
+                </div>
+            </ol>
+        </div>
+
+        <div class="caption">
+            <div class="bg">
+                <!-- <h2>Scan here!</h2>
+            <hr><br> -->
+                <div class="boxer">
+                    <h4>Upload Image</h4>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ s_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-dark button-lg" type="submit" >Upload</button>
+                            <a class="btn btn-outline-dark button-lg" href="/thankyou">Proceed</a>
+                        </div>
+                    </form>
+                    <br><br>
+                    <h3>OR</h3>
+                    <br>
+                    <a class="btn btn-outline-dark button-lg" href="/camera">Scan by Webcam</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <!--
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -21,6 +120,26 @@
         <li>Hold the pattern as vertically as possible to avoid slant measure errors.</li>
         <li>A plain background and 1-1.5m distance from the camera is preferable.</li>
         
-    </ol>  
-</div>
-{% endblock content %}
+    </ol>  -->
+    <div id="contact" class="offset">
+		<footer>
+			<div class="row1 justify-content-center">
+				<div class="col-md-5 text-center">
+					<img src="{% static 'users/Snaphunt2.jpg' %}">
+					<p>Thank you for visiting our website:))</p>
+					<strong>Contact Info</strong>
+					<p>888-888-888<br>superfit@gmail.com</p>
+					<a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+				</div>
+
+				<hr class="socket"><br>
+				&copy; Super Fit <br>Made with ❤ by crew of Super Fit<br>Group 3
+			</div><!--End of row-->
+		</footer>
+	</div>
+	<!--End Contact Section-->
+
+</body>
+</html>

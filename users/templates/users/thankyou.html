@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<button onclick="Retake()" name="button">Retake</button>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Thankyouu</title>
+    <img src={{image_path}} />
+  </head>
+  <body>
+<script type="text/javascript">
+
+function Retake(){
+  location.href="/camera"
+}
+
+
+</script>
+<form action='ty_redirect' method='GET'>
+<button type='submit'>Proceed</button>
+</form>
+<p>the body size is {{size}}</p>
+  </body>
+</html>
