@@ -17,7 +17,7 @@
 
     
     function Retake(){
-    location.href="/camera"
+        location.href="/camera"
     }
     
     </script>
@@ -59,7 +59,7 @@
     <form action='ty_redirect' method='GET'>
         <img src="{{image_path}}" class="center">
         <div class="buttons">
-            <button onclick=Retake() name="button" id='button1'>Retake</button>
+            <button onclick="Retake()" name="button" id='button1'>Retake</button>
             <button onclick="redirect()" id='button2'>Proceed</button>
             <p>Your body size is {{size}}.</p>
         </div>
@@ -214,7 +214,7 @@
             &copy; Super Fit <br>Made with ❤ by crew of Super Fit<br>Group Id: 3A72021<br>
         </p>
         <p class = "centered">
-            <img src="img/superfitlogo.png"><br>
+            <img src="{% static 'users/img/SuperFitlogo2-withoutbackground.jpeg' %}"><br>
         </p>
     </div>
 
